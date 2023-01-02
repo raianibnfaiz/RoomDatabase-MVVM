@@ -36,7 +36,7 @@
             android:layout_margin="10dp"
             android:textSize="15sp"
             android:layout_marginBottom="8dp"
-            tools:text="Mohammad Joynul Abedin"
+            tools:text="Raian Ibn Faiz"
             android:textColor="#000"
             app:layout_constraintStart_toEndOf="@id/imageView1"
             app:layout_constraintTop_toTopOf="parent" />
@@ -48,6 +48,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:layout_margin="10dp"
+            android:text="raian@gmail.com"
             android:textSize="15sp"
             android:textColor="#000"
             app:layout_constraintStart_toEndOf="@id/imageView1"
@@ -66,7 +67,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/email"
             app:layout_constraintStart_toEndOf="@id/imageView1"
-            tools:text="25" />
+            tools:text="27" />
 
         <ImageButton
             android:id="@+id/update"

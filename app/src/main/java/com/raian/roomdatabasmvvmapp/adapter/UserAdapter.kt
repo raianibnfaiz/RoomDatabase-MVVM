@@ -1,5 +1,6 @@
 package com.raian.roomdatabasmvvmapp.adapter
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -29,9 +30,9 @@ class UserAdapter (val context: Context, val viewModel: UserViewModel):RecyclerV
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val currentData = userList?.get(position)
-        holder.itemView.name.setText( currentData?.firstName)
-        holder.itemView.email.setText(currentData?.lastName)
-        holder.itemView.age.setText(currentData?.age.toString())
+        holder.itemView.name.setText("FirstName: ${currentData?.firstName}" )
+        holder.itemView.email.setText("LastName: ${currentData?.lastName}")
+        holder.itemView.age.setText("Age: ${currentData?.age.toString()}")
 
         holder.itemView.update.setOnClickListener{
             val action = currentData?.let { it1 ->
@@ -44,9 +45,24 @@ class UserAdapter (val context: Context, val viewModel: UserViewModel):RecyclerV
             }
         }
         holder.itemView.delete.setOnClickListener{
-            if (currentData != null) {
-                viewModel.deleteUser(currentData)
-            }
+
+            val builder = AlertDialog.Builder(context)
+            builder.setMessage("Are you sure you want to Delete?")
+                .setCancelable(true)
+                .setPositiveButton("Yes") { dialog, id ->
+                    if (currentData != null) {
+                        viewModel.deleteUser(currentData)
+                    }
+                }
+                .setNegativeButton("No") { dialog, id ->
+                    // Dismiss the dialog
+                    dialog.dismiss()
+                }
+            val alert = builder.create()
+            alert.show()
+//            if (currentData != null) {
+//                viewModel.deleteUser(currentData)
+//            }
         }
 
     }
